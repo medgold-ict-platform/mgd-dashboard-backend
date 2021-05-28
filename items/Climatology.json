@@ -1,0 +1,111 @@
+{
+  "Ecv": {
+    "Average": true,
+    "label": "Climate",
+    "Monthly": true,
+    "Name": [
+      "Precipitation monthly",
+      "Tmax monthly",
+      "Tmin monthly",
+      "Taverage monthly"
+    ],
+    "era5Name": [
+      "Precipitation monthly",
+      "Tmax monthly",
+      "Tmin monthly",
+      "Taverage monthly"
+    ],
+    "switch_id": "era5",
+    "Timeline": {
+      "Average": {
+        "Intervals": [
+          "1981-2010"
+        ]
+      },
+      "default": {
+        "end_date": "2015",
+        "start_date": "1951",
+        "top_left": "41.995,-8.995",
+        "bottom_right": "40.005,-6.175"
+      },
+      "era5": {
+        "end_date": "2020",
+        "start_date": "1979",
+        "top_left": "45,-10",
+        "bottom_right": "35,4"
+      }
+    }
+  },
+  "id": "climatology",
+  "Index": {
+    "Average": true,
+    "label": "Bioclimatic",
+    "Monthly": false,
+    "Name": [
+      "GST",
+      "HarvestR",
+      "SprR",
+      "SU35",
+      "WSDI"
+    ],
+    "era5Name": [
+      "GST",
+      "HarvestR",
+      "SprR",
+      "SU35",
+      "WSDI",
+      "Spr32",
+      "SU36",
+      "SU40"
+    ],
+    "switch_id": "era5",
+    "Timeline": {
+      "Average": {
+        "Intervals": [
+          "1981-2010"
+        ]
+      },
+      "default": {
+        "end_date": "2015",
+        "start_date": "1951",
+        "top_left": "41.995,-8.995",
+        "bottom_right": "40.005,-6.175"
+      },
+      "era5": {
+        "end_date": "2020",
+        "start_date": "1979",
+        "top_left": "45,-10",
+        "bottom_right": "35,4"
+      }
+    }
+  },
+  "label": "Historical Climate",
+  "Risk": {
+    "Average": false,
+    "era5Name": [
+      "Sanitary Risk",
+      "Heat Risk"
+    ],
+    "label": "Wine Risk Indicators",
+    "Monthly": false,
+    "Name": [
+      "Sanitary Risk",
+      "Heat Risk"
+    ],
+    "switch_id": "era5",
+    "Timeline": {
+      "default": {
+        "end_date": "2015",
+        "start_date": "1951",
+        "top_left": "41.99,-8.99",
+        "bottom_right": "40.01,-6.2"
+      },
+      "era5": {
+        "end_date": "2020",
+        "start_date": "1979",
+        "top_left": "45,-10",
+        "bottom_right": "35,4"
+      }
+    }
+  }
+}

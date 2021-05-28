@@ -1,0 +1,363 @@
+{
+  "Ecv": {
+    "label": "Climate",
+    "leadtime": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "Percentile_id": "ecvp",
+    "Monthly": true,
+    "Average":false,
+    "Name": [
+      "Precipitation monthly",
+      "Tmax monthly",
+      "Tmin monthly",
+      "Taverage monthly"
+    ],
+    "Starting_date": [
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+    ],
+    "Timeline": {
+      "default": {
+        "end_date": "2020",
+        "start_month": "3",
+        "end_month": "12",
+        "start_date": "1993",     
+        "top_left": "45.0,-9.9",
+        "bottom_right": "35.0,4.0"
+      },
+      "leadt":{
+        "Mar":["1"],
+        "Apr":["2", "1"],
+        "May":["3", "2", "1"],
+        "Jun":["4", "3", "2", "1"],
+        "Jul":["5", "4", "3", "2"],
+        "Aug":["6", "5", "4", "3"],
+        "Sep":["7", "6", "5", "4"],
+        "Oct":["7", "6", "5"],
+        "Nov":["7", "6"],
+        "Dec":["7"]
+      }
+    }
+  },
+  "id": "Seasonal-Forecast",
+  "Index": {
+    "Percentile_id": "indexp",
+    "label": "Bioclimatic",
+    "Monthly": false,
+    "Name": [
+      "GST",
+      "HarvestR",
+      "SprR",
+      "Sprtx",
+      "WSDI",
+      "SU35",
+      "SU36",
+      "SU40",
+      "Spr32"
+    ],
+    "Starting_date": [
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+    ],
+    "Average":false,
+    "Timeline": {
+      "default": {
+        "end_date": "2020",
+        "start_date": "1993",     
+        "top_left": "45.0,-9.9",
+        "bottom_right": "35.0,4.0"
+      },
+      "GST": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      },
+      "WSDI": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      },
+      "HarvestR": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      },
+      "SprR": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      },
+      "spr32": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      },
+      "SU35": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      },
+      "SU36": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      },
+      "SU40": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      },
+      "sprtx": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      }
+    }
+  },
+  "label": "Seasonal-Forecast",
+  "QMarks": {
+    "Description": [
+      {
+        "Anomalies": "Why anomalies? The advantage of using anomalies with respect to model climate for graphical products is that they are independent of observational datasets. The disadvantage is that the climate base period for anomalies should be chosen according to the re-forecast period (1996-2016).",
+        "Monthly Seasonal": "Monthly seasonal forecasts. A seasonal forecast is produced each month. The Copernicus seasonal forecasts have a starting date of the 1st of each month and run for 7 months. Thus for any selected month in the available period (1993 – now), there are 7 different forecasts produced respectively: from seven months in advance to one month in advance. This time gap is called “Lead time”. The most recent forecast has a lead time of one month.",
+        "Tercile": "Dominant Tercile Summary Map. Probabilities are initially computed by comparing the forecast probability density function (PDF) with the corresponding model climate PDF, estimated from the hindcast set over the reference period (1993-2016). The probabilities are then stratified according to the lower/upper/middle third of the model climate distribution over the reference period. Finally, the Dominant Tercile Summary forecast Map shows the areas which have an increased probability (exceeding 40%) of being either below the lower tercile or above the upper tercile. Significance testing is not applied. If the dominant tercile does not exceed 40% that grid point is not assigned to any tercile and it is not shown."
+      }
+    ],
+    "Name": [
+      "Monthly Seasonal",
+      "Tercile"
+    ]
+  },
+  "Risk": {
+    "Percentile_id": "indexp",
+    "Average":false,
+    "label": "Wine Risk Indicators",
+    "Monthly": false,
+    "Name": [
+      "Sanitary Risk",
+      "Heat Risk"
+    ],
+    "Starting_date": [
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+    ],
+    "Timeline": {
+      "default":{   
+        "top_left": "45.0,-20",
+        "bottom_right": "30.0,-1.0",
+        "end_date": "2020",
+        "start_date": "1993"
+      },
+      "Heat Risk": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }
+      },
+      "Sanitary Risk": {
+        "Mar": {
+          "leadt": "3",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Apr": {
+          "leadt": "4",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "May": {
+          "leadt": "5",
+          "end_date": "2020",
+          "start_date": "1993"
+        },
+        "Jun": {
+          "leadt": "6",
+          "end_date": "2020",
+          "start_date": "1993"
+        }      
+      }
+    }
+  }
+}

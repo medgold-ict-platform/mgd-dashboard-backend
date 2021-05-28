@@ -1,0 +1,14 @@
+{
+  "name": "mgd-dashboard-backend",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {
+    "serverless": "^1.69.0",
+    "serverless-api-gateway-caching": "^1.6.1",
+    "serverless-reqvalidator-plugin": "^1.0.3"
+  },
+  "devDependencies": {
+    "serverless-python-requirements": "^5.1.0",
+    "serverless-scriptable-plugin": "^1.1.0"
+  }
+}

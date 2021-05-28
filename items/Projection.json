@@ -1,0 +1,81 @@
+{
+  "Anomalies": {
+    "Intervals": [
+      "2031-2060_1971-2000",
+      "2071-2100_1971-2000"
+    ]
+  },
+  "bottom_right": "40.8050,-6.5050",
+  "Ecv": {
+    "Intervals": [
+      "1971-2000",
+      "2031-2060",
+      "2071-2100"
+    ],
+    "label": "Climate",
+    "Monthly": true,
+    "Name": [
+      "Precipitation monthly",
+      "Tmax monthly",
+      "Tmin monthly",
+      "Taverage monthly"
+    ],
+    "AndalusiaName":[
+      "Precipitation monthly",
+      "Tmax monthly",
+      "Tmin monthly",
+      "Taverage monthly"
+    ]
+  },
+  "id": "Projection",
+  "Index": {
+    "bottom_right": "40.8050,-6.5050",
+    "Intervals": [
+      "1971-2000",
+      "2031-2060",
+      "2071-2100"
+    ],
+    "label": "Bioclimatic",
+    "Monthly": false,
+    "Name": [
+      "GST",
+      "HarvestR",
+      "SprR",
+      "SU35",
+      "WSDI",
+      "GDD"
+    ],
+    "AndalusiaName":[
+      "Sprtx",
+      "SU36",
+      "SU40",
+      "Spr32"
+    ],
+    "top_left": "41.4950,-7.9950"
+  },
+  "label": "Long Term Projections",
+  "RCP": {
+    "Description": [
+      {
+        "High greenhouse gas emission": "This is the Representative Concentration Pathway 8.5 (RCP8.5). It is assumed that greenhouse gas concentration rises throughout the 21st century, leading to a radiative forcing of 8.5 W/m^2 in 2100, which corresponds to a likely range of global temperature increase of 2.6°C to 4.8°C with respect to the reference period 1986-2005.",
+        "Intermediate greenhouse gas emission": "This is the Representative Concentration Pathway 4.5 (RCP4.5). It is assumed that the greenhouse gas concentration peaks in 2040 and then declines, leading to a radiative forcing of 4.5 W/m^2 in 2100, which corresponds to a likely range of global temperature increase of 1.1°C to 2.6°C with respect to the reference period 1986-2005."
+      }
+    ],
+    "Intervals": [
+      "2031-2060",
+      "2071-2100"
+    ],
+    "Monthly": false,
+    "Name": [
+      "Intermediate greenhouse gas emission",
+      "High greenhouse gas emission"
+    ],
+    "Values": [
+      {
+        "High greenhouse gas emission": "85",
+        "Intermediate greenhouse gas emission": "45"
+      }
+    ]
+  },
+  "top_left": "41.4950,-7.9950"
+}

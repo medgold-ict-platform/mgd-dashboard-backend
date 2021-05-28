@@ -1,0 +1,91 @@
+resources: 
+  Resources:
+    apirole:
+      Type: AWS::IAM::Role
+      Properties:
+        Path: /my/default/path/
+        RoleName: ${self:provider.stage}-${self:provider.project}-api-role 
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action: sts:AssumeRole
+        Policies:
+          - PolicyName: dynamoDB-access
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - dynamodb:DescribeTable
+                    - dynamodb:Query
+                    - dynamodb:Scan
+                    - dynamodb:GetItem
+                    - logs:CreateLogGroup
+                    - logs:CreateLogStream
+                    - logs:PutLogEvents
+                  Resource: 
+                    - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.DYNAMO_DB_DASHBOARD_TABLE}"
+                    - "arn:aws:logs:*:*:*"
+  
+    ec2role:
+        Type: AWS::IAM::Role
+        Properties:
+          Path: /my/default/path/
+          RoleName: ${self:provider.stage}-${self:provider.project}-ec2-role
+          AssumeRolePolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Principal:
+                  Service:
+                    - lambda.amazonaws.com
+                Action: sts:AssumeRole
+          Policies:
+            - PolicyName: ec2-access
+              PolicyDocument:
+                Version: '2012-10-17'
+                Statement:
+                  - Effect: Allow
+                    Action:
+                      - ec2:CreateNetworkInterface
+                      - ec2:DescribeNetworkInterfaces
+                      - ec2:DetachNetworkInterface
+                      - ec2:DeleteNetworkInterface
+                      - logs:CreateLogGroup
+                      - logs:CreateLogStream
+                      - logs:PutLogEvents
+                    Resource: 
+                      - "*"
+                      - "arn:aws:logs:*:*:*"
+
+    s3role:
+        Type: AWS::IAM::Role
+        Properties:
+          Path: /my/default/path/
+          RoleName: ${self:provider.stage}-${self:provider.project}-s3-role
+          AssumeRolePolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Principal:
+                  Service:
+                    - lambda.amazonaws.com
+                Action: sts:AssumeRole
+          Policies:
+            - PolicyName: s3-access
+              PolicyDocument:
+                Version: '2012-10-17'
+                Statement:
+                  - Effect: Allow
+                    Action:
+                      - s3:*
+                      - logs:CreateLogGroup
+                      - logs:CreateLogStream
+                      - logs:PutLogEvents
+                    Resource: 
+                      - "*"
+                      - "arn:aws:logs:*:*:*"

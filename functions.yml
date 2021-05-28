@@ -1,0 +1,228 @@
+functions:
+  list-datasets:
+    name: ${self:provider.stage}-${self:provider.project}-list-ids
+    environment:
+      stage: ${self:provider.stage}
+      dashboard_table: ${self:custom.DYNAMO_DB_DASHBOARD_TABLE}
+    handler: lambda/mgd-dashboard-get-ids.ids
+    events:
+      - http: 
+          path: /ids
+          method: get
+          caching:
+            enabled: true
+            ttlInSeconds: 3600 # overrides the global setting for ttlInSeconds
+          cors: true
+          reqValidatorName: validator
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: ${self:custom.cognito_arn}
+    role: apirole
+
+  get-info:
+    name: ${self:provider.stage}-${self:provider.project}-get-info
+    environment:
+      stage: ${self:provider.stage}
+      dashboard_table: ${self:custom.DYNAMO_DB_DASHBOARD_TABLE}
+    handler: lambda/mgd-dashboard-get-info.info
+    events: 
+      - http: 
+          path: /{id}/info
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+          reqValidatorName: validator
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: ${self:custom.cognito_arn}
+    role: apirole
+
+  get-all:
+    name: ${self:provider.stage}-${self:provider.project}-get-all
+    environment:
+      stage: ${self:provider.stage}
+      dashboard_table: ${self:custom.DYNAMO_DB_DASHBOARD_TABLE}
+    handler: lambda/mgd-dashboard-get-all.all
+    events: 
+      - http: 
+          path: /all
+          method: get
+          reqValidatorName: validator
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: ${self:custom.cognito_arn}
+    role: apirole
+
+  get-timeline:
+    name: ${self:provider.stage}-${self:provider.project}-get-timeline
+    environment:
+      stage: ${self:provider.stage}
+      dashboard_table: ${self:custom.DYNAMO_DB_DASHBOARD_TABLE}
+    handler: lambda/mgd-dashboard-get-timeline.timeline
+    events: 
+       - http: 
+          path: /{id}/{resource}/timeline
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+          reqValidatorName: validator
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: ${self:custom.cognito_arn}
+    role: apirole
+
+  get-token:
+    name: ${self:provider.stage}-${self:provider.project}-authentication
+    environment:
+      stage: ${self:provider.stage}
+      pool_id:  ${self:custom.pool_id}
+      client_id:  ${self:custom.client_id}
+    handler: mgd-dashboard-get-token.authentication
+    module: module
+    timeout: 30
+    events: 
+      - http: 
+          path: /authentication
+          method: get
+          request:
+            parameters:
+              querystrings:
+                username: true
+                password: true
+          reqValidatorName: validator
+          cors: true
+    role: apirole
+
+  match-all:
+    name: ${self:provider.stage}-${self:provider.project}-match-all
+    environment:
+      stage: ${self:provider.stage}
+      ES_ENDPOINT: ${self:custom.ES_ENDPOINT}
+    handler: mgd-dashboard-es-match-all-index.match_all_index
+    module: module
+    timeout: 30
+    events: 
+       - http: 
+          path: /index/match-all/
+          method: get
+          request:
+            parameters:
+              querystrings:
+                tab: true
+                stype: true
+                value: true
+                year: true
+                month: false
+                top_left: true
+                bottom_right: true
+                rcp: false
+          reqValidatorName: validator
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: ${self:custom.cognito_arn}
+    vpc:
+      securityGroupIds:
+        - "sg-0445c3d69d056c739"
+      subnetIds:
+        - "subnet-000cd86646c9d5bf0"
+        - "subnet-0c508dc4e039d3474"
+    role: ec2role
+
+  match-location:
+    name: ${self:provider.stage}-${self:provider.project}-match-location
+    environment:
+      stage: ${self:provider.stage}
+      ES_ENDPOINT: ${self:custom.ES_ENDPOINT}
+    handler: mgd-dashboard-es-match-location.match_location
+    module: module
+    timeout: 30
+    events: 
+       - http: 
+          path: /index/match-location/
+          method: get
+          request:
+            parameters:
+              querystrings:
+                tab: true
+                stype: true
+                value: true
+                location: true
+          reqValidatorName: validator
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: ${self:custom.cognito_arn}
+    vpc:
+      securityGroupIds:
+        - "sg-0445c3d69d056c739"
+      subnetIds:
+        - "subnet-000cd86646c9d5bf0"
+        - "subnet-0c508dc4e039d3474"
+    role: ec2role
+    
+  match-location-seasonal:
+    name: ${self:provider.stage}-${self:provider.project}-match-seasonal
+    environment:
+      stage: ${self:provider.stage}
+      ES_ENDPOINT: ${self:custom.ES_ENDPOINT}
+    handler: mgd-dashboard-es-match-seasonal.match_location_seas
+    module: module
+    timeout: 30
+    events: 
+       - http: 
+          path: /index/match-location/seasonal_forecast
+          method: get
+          request:
+            parameters:
+              querystrings:
+                stype: true
+                value: true
+                location: true
+                leadt: true
+          reqValidatorName: validator
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: ${self:custom.cognito_arn}
+    vpc:
+      securityGroupIds:
+        - "sg-0445c3d69d056c739"
+      subnetIds:
+        - "subnet-000cd86646c9d5bf0"
+        - "subnet-0c508dc4e039d3474"
+    role: ec2role
+
+  get-link:
+    name: ${self:provider.stage}-${self:provider.project}-get-link
+    environment:
+      BUCKET: ${self:custom.BUCKET}
+    handler: mgd-dashboard-getLink.getLink
+    module: module
+    timeout: 30
+    events: 
+       - http: 
+          path: /getlink
+          method: get
+          request:
+            parameters:
+              querystrings:
+                tab: true
+                stype: true
+                value: true
+                month: false
+                year: true
+                leadt: false
+          reqValidatorName: validator
+          cors: true
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: ${self:custom.cognito_arn}
+    role: s3role

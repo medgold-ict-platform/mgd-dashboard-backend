@@ -1,0 +1,45 @@
+app: mgd-dashboard-backend-app
+service: mgd-dashboard-backend
+
+plugins:
+  - serverless-scriptable-plugin
+  - serverless-python-requirements
+  - serverless-reqvalidator-plugin
+  - serverless-api-gateway-caching
+
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: ${opt:stage, 'dev'} # Set the default stage used. Default is dev
+  region: ${opt:region, 'eu-west-1'} 
+  project: mgd-dashboard
+  stackTags:
+    Name: mgd-dashboard-backend
+    Environment: ${self:provider.stage}
+
+custom:
+  pythonRequirements:
+    invalidateCaches: true
+
+  scriptHooks:
+    after:aws:info:displayStackOutputs: python3 scripts/put_item.py ${self:custom.DYNAMO_DB_DASHBOARD_TABLE}
+  DYNAMO_DB_DASHBOARD_TABLE: ${self:provider.stage}-${self:provider.project}-table
+  ES_ENDPOINT: "vpc-tf-dev-mgd-dashboard-es-sy4snbvofwdvfiizjqpjegkzk4.eu-west-1.es.amazonaws.com"
+  first_subnet: subnet-000cd86646c9d5bf0
+  second_subnet: subnet-0c508dc4e039d3474
+  cognito_arn: "arn:aws:cognito-idp:eu-west-1:284176251738:userpool/eu-west-1_owfEtSFcp"
+  sg: sg-0445c3d69d056c739
+  BUCKET: '*****'
+  pool_id: "eu-west-1_owfEtSFcp"
+  client_id: "7efjel0mg7qrjrvgb19dr3ooff"
+
+functions: ${file(functions.yml):functions}
+
+resources:
+  - ${file(dynamodb-table.yml):resources}
+  - ${file(iam-role.yml):resources}
+  - ${file(validator.yml):resources}
